@@ -10,11 +10,13 @@ import { NgModule } from '@angular/core';
 import {MaterializeModule} from 'angular2-materialize';
 
 import { AppComponent } from './app.component';
+import { NavigationComponent } from './navigation/navigation.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
+    NavigationComponent,
   ],
   imports: [
     BrowserModule,
