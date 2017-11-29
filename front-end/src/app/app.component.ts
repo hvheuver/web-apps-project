@@ -8,10 +8,8 @@ import * as $ from 'jquery' ;
   styleUrls: ['./app.component.scss']
 })
 
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit {
   title = 'app';
 
-    public ngOnInit(): void {
-      
-    }
+    public ngOnInit(): void {}
 }
