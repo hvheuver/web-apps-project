@@ -11,12 +11,28 @@ import {MaterializeModule} from 'angular2-materialize';
 
 import { AppComponent } from './app.component';
 import { NavigationComponent } from './navigation/navigation.component';
+import { BlogComponent } from './blog/blog.component';
+import { AppRoutingComponent } from './app-routing/app-routing.component';
+import { BeschrijfschietingComponent } from './beschrijfschieting/beschrijfschieting.component';
+import { PuntenschietingComponent } from './puntenschieting/puntenschieting.component';
+import { StaandeWipComponent } from './staande-wip/staande-wip.component';
+import { WillemTellComponent } from './willem-tell/willem-tell.component';
+import { BestuurComponent } from './bestuur/bestuur.component';
+import { ContactComponent } from './contact/contact.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     NavigationComponent,
+    BlogComponent,
+    AppRoutingComponent,
+    BeschrijfschietingComponent,
+    PuntenschietingComponent,
+    StaandeWipComponent,
+    WillemTellComponent,
+    BestuurComponent,
+    ContactComponent,
   ],
   imports: [
     BrowserModule,
