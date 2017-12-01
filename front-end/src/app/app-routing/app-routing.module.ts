@@ -15,13 +15,14 @@ import { NotFoundComponent } from '../not-found/not-found.component';
 
 const appRoutes: Routes = [
     {path: '', redirectTo: 'blog', pathMatch: 'full'},
+    {path: 'blog', component: BlogComponent },    
     {path: 'beschrijfschieting', component: BeschrijfschietingComponent},
     {path: 'puntenschieting', component: PuntenschietingComponent},
     {path: 'staandewip', component: StaandeWipComponent},
     {path: 'willemtell', component: WillemTellComponent},
     {path: 'bestuur', component: BestuurComponent},
     {path: 'contact', component: ContactComponent},
-    { path: '**', component: NotFoundComponent }
+    {path: '**', component: NotFoundComponent }
 ];
 
 
