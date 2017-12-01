@@ -5,3 +5,9 @@ img{
 .nav-wrapper{
     background-color: rgb(163, 8, 8);
 }
+  
+.carousel {
+    height: 400px;
+    left: 50%;
+    transform: translateX(-50%);
+  }

@@ -1,6 +1,7 @@
 import { HttpModule } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { CarouselModule } from 'angular4-carousel';
 
 // materialize import
 // https://github.com/InfomediaLtd/angular2-materialize
@@ -13,18 +14,23 @@ import {MaterializeModule} from 'angular2-materialize';
 import { AppComponent } from './app.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { AppRoutingModule } from './app-routing/app-routing.module';
+import { FooterComponent } from './footer/footer.component';
+import { DetailblogComponent } from './blog/detailblog/detailblog.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavigationComponent
+    NavigationComponent,
+    FooterComponent,
+    DetailblogComponent
   ],
   imports: [
     BrowserModule,
     MaterializeModule,
     HttpModule,
-    AppRoutingModule
+    AppRoutingModule,
+    CarouselModule
   ],
   providers: [],
   bootstrap: [AppComponent]
