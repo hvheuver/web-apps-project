@@ -43,3 +43,6 @@ back-end/node_modules
 back-end/package-lock.json
 back-end/*.log
 back-end/*.gz
+
+#secret
+back-end/.env.json
