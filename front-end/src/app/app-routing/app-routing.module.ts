@@ -1,3 +1,5 @@
+import { AddBlogpostComponent } from '../admin-panel/add-blogpost/add-blogpost.component';
+import { AdminPanelComponent } from '../admin-panel/admin-panel.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { MaterializeModule} from 'angular2-materialize';
@@ -15,13 +17,15 @@ import { NotFoundComponent } from '../not-found/not-found.component';
 
 const appRoutes: Routes = [
     {path: '', redirectTo: 'blog', pathMatch: 'full'},
-    {path: 'blog', component: BlogComponent },    
+    {path: 'blog', component: BlogComponent },
     {path: 'beschrijfschieting', component: BeschrijfschietingComponent},
     {path: 'puntenschieting', component: PuntenschietingComponent},
     {path: 'staandewip', component: StaandeWipComponent},
     {path: 'willemtell', component: WillemTellComponent},
     {path: 'bestuur', component: BestuurComponent},
     {path: 'contact', component: ContactComponent},
+    {path: 'admin', component: AdminPanelComponent },
+    {path: 'addblogpost', component: AddBlogpostComponent },
     {path: '**', component: NotFoundComponent }
 ];
 

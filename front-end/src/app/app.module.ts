@@ -17,6 +17,8 @@ import { AppRoutingModule } from './app-routing/app-routing.module';
 import { FooterComponent } from './footer/footer.component';
 import { DetailblogComponent } from './blog/detailblog/detailblog.component';
 import { ArchiveComponent } from './blog/archive/archive.component';
+import { AdminPanelComponent } from './admin-panel/admin-panel.component';
+import { AddBlogpostComponent } from './admin-panel/add-blogpost/add-blogpost.component';
 
 
 @NgModule({
@@ -25,7 +27,9 @@ import { ArchiveComponent } from './blog/archive/archive.component';
     NavigationComponent,
     FooterComponent,
     DetailblogComponent,
-    ArchiveComponent
+    ArchiveComponent,
+    AdminPanelComponent,
+    AddBlogpostComponent
   ],
   imports: [
     BrowserModule,

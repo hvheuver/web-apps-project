@@ -2,12 +2,20 @@ img{
    max-height: 300px;
 }
 
-.nav-wrapper{
-    background-color: rgb(163, 8, 8);
+nav{
+    background-color: rgba(198, 40, 40, 0.9);
+    font-weight: bolder;
+    font-size: 1.5em;
 }
   
 .carousel {
+    position: absolute;
+    top: 0;
     height: 400px;
     left: 50%;
     transform: translateX(-50%);
   }
+
+.nav-wrapper{
+    height: 400px;
+}
