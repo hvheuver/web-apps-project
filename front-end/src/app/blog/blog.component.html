@@ -3,21 +3,23 @@
     <h1>Merendree Willem Tell</h1>
 </div>
 
-<div class="row">
-  <div class="col s12 m10 offset-m1 l8 offset-l2">
-    <div class="card z-depth-5">
-      <div class="card-image">
-        <img src="../../assets/images/slide-image-1.jpg">
-      </div>
-      <div class="card-content">
-          <span class="card-title">Card Title</span>
-        <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
-        <br>
-        <a class="waves-effect waves-light btn" routerLink="" >Lees meer...</a>              
+<div *ngFor="let post of blogposts">
+  <div class="row">
+      <div class="col s12 m10 offset-m1 l8 offset-l2">
+        <div class="card z-depth-5">
+          <div class="card-image">
+            <img src="{{post.imageUrl}}">
+          </div>
+          <div class="card-content">
+              <span class="card-title">{{post.title}}</span>
+                <p>{{post.body}}</p>
+              <br>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
 </div>
+
 <div class="row">
     <div class="archive">
       <a class="waves-effect waves-light btn" routerLink="" >Bekijk archief</a>

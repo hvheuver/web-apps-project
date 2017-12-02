@@ -1,15 +1,18 @@
+import { BlogDataService } from './blog/blog-data-service.service';
+import { Blogpost } from './blog/blogpost.model';
 import { Component, ViewChild, ElementRef, OnInit } from '@angular/core';
 import { MaterializeModule } from 'angular2-materialize';
-import * as $ from 'jquery' ;
+import * as $ from 'jquery';
 // https://stackoverflow.com/a/43376844
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
 })
 
 export class AppComponent implements OnInit {
   title = 'app';
+    public ngOnInit(): void {
+    }
 
-    public ngOnInit(): void {}
 }
