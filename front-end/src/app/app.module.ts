@@ -16,6 +16,7 @@ import { NavigationComponent } from './navigation/navigation.component';
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { FooterComponent } from './footer/footer.component';
 import { DetailblogComponent } from './blog/detailblog/detailblog.component';
+import { ArchiveComponent } from './blog/archive/archive.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { DetailblogComponent } from './blog/detailblog/detailblog.component';
     AppComponent,
     NavigationComponent,
     FooterComponent,
-    DetailblogComponent
+    DetailblogComponent,
+    ArchiveComponent
   ],
   imports: [
     BrowserModule,
