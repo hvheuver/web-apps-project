@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { MaterializeModule} from 'angular2-materialize';
 import { RouterModule, Routes } from '@angular/router';
-import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 // public components
 import { AppComponent } from '../app.component';
 import { BlogComponent } from '../blog/blog.component';
@@ -52,6 +52,7 @@ const appRoutes: Routes = [
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     MaterializeModule,
     RouterModule.forRoot(
         appRoutes

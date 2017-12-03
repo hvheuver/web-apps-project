@@ -15,7 +15,7 @@ export class BlogDataService {
     // map every response to a class
     return this.http.get(this._appUrl).map(response =>
       response.json().map(
-        post => new Blogpost(post.title, post.body, post.imageUrl))
+        post => Blogpost.fromJSON(post))
     );
   }
 }

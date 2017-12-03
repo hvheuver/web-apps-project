@@ -38,7 +38,7 @@ export class LoginComponent implements OnInit {
           this.authService.redirectUrl = undefined;
         } else {
           // go to main screen
-          this.router.navigate(['/admin']);
+          this.router.navigate(['admin']);
         }
       }
     }, err => this.errorMsg = err.json().message);

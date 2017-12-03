@@ -25,4 +25,17 @@ router.post('/blogposts', auth,function (req, res, next){
     res.json(rec)
   });
 });
+
+router.delete('/blogposts/:id', function(req, res, next) {
+  Blogpost.remove({ _id: {$in: req.post }}, function (err) {
+    if (err) return next(err);
+    // remove
+    req.post.remove(function(err) {
+      if (err) { return next(err); } 
+      // send old object back
+      res.json(req.post);
+     });
+  })
+})
+
 module.exports = router;

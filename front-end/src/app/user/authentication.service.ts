@@ -21,6 +21,10 @@ export class AuthenticationService {
     return this._user$;
   }
 
+  get token(): string {
+    return JSON.parse(localStorage.getItem('currentUser')).token;
+  }
+
   login(username: string, password: string): Observable<boolean> {
     return this.http.post(`${this._url}/login`,
     { username: username, password: password })

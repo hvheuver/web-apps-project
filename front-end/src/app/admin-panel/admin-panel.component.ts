@@ -1,3 +1,4 @@
+import { Blogpost } from '../blog/blogpost.model';
 import { BlogAdminDataService } from './blog-admin-data-service.service';
 import { Component, OnInit } from '@angular/core';
 import { BlogDataService } from '../blog/blog-data-service.service';
@@ -24,4 +25,9 @@ export class AdminPanelComponent implements OnInit {
       return this._posts;
     }
 
+    removePost(postid) {
+      const post = this._posts.filter(val => val.id === postid)[0];
+      // find post and delete by id
+      this._blogAdminDataService.removeBlogpost(post).subscribe();
+    }
 }

@@ -16,8 +16,12 @@
           <tbody *ngFor="let post of blogposts">
             <tr>
               <td>{{post.title}}</td>
-              <td>aanpassen</td>
-              <td>verwijderen</td>
+              <td>{{post.id}}</td>
+              <td>
+                  <div class="buttonwrapper">
+                      <a class="waves-effect waves-light btn" (click)="removePost(post.id)" >Verwijder</a>
+                    </div>
+              </td>
             </tr>
           </tbody>
         </table>
