@@ -21,6 +21,7 @@ router.post('/register', function(req, res, next){
   });
 });
 
+//login
 router.post('/login', function(req, res, next){
   if(!req.body.username || !req.body.password){
       return res.status(400).json(
@@ -36,4 +37,14 @@ router.post('/login', function(req, res, next){
   })(req, res, next);
 });
 
+//check username for registering, whether or not it is unique
+router.post('/checkusername', function(req, res, next) {
+    User.find({username: req.body.username}, function(err, result) {
+      if (result.length) {
+        res.json({'username': 'alreadyexists'})
+      } else {
+        res.json({'username': 'ok'})
+      }
+    });
+});
 module.exports = router;

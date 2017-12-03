@@ -1,0 +1,6 @@
+<label for="username">Gebruikersnaam:</label>
+<input type="text" id="username" formControlName='username'>
+<div class='klass' 
+  *ngIf='user.get("username").errors?.userAlreadyExists && user.get("username").touched'>
+    Er is al een gebruiker met deze naam.
+</div>
