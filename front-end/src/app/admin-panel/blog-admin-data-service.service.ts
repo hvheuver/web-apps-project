@@ -21,7 +21,7 @@ export class BlogAdminDataService {
       );
   }
 
-  removeBlogpost(post): Observable<Blogpost> {
-    return this.http.delete(`${this._appUrl}/${post.id}`).map(res => res.json()).map(item => Blogpost.fromJSON(item));
+  removeBlogpost(postid) {
+    return this.http.delete(`${this._appUrl}/${postid}`).map(res => res.json());
   }
 }

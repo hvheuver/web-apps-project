@@ -6,7 +6,6 @@
           <input formControlName='title' id="title" type="text">
           <label for="title">Titel </label>
         </div>
-        
         <div class="input-field col s10 offset-s1 m4 offset-m4">
           <input formControlName='imageUrl' id="imageUrl" type="text" >
           <label for="imageUrl">Afbeelding URL</label>
@@ -14,8 +13,7 @@
         <div class="input-field col s10 offset-s1 m4 offset-m4">
             <textarea formControlName='body' id="body" type="text" ></textarea>
             <label for="body">Inhoud</label>
-          </div>
-        
+          </div>   
       </div>
       <div *ngIf='errorMsg' class="card-panel red lighten-4 col s10 offset-s1 m4 offset-m4" >{{errorMsg}}</div>  
       <div class="btnwrapper">

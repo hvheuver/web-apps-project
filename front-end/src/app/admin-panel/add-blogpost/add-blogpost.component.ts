@@ -34,6 +34,7 @@ export class AddBlogpostComponent implements OnInit {
     const newpost = new Blogpost(this.post.value.title,
     this.post.value.body, this.post.value.imageUrl);
     this._blogAdminDataService.addBlogpost(newpost).subscribe();
+    this._router.navigate(['admin']);
   }
 
 }

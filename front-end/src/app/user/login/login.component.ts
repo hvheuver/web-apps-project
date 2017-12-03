@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit {
   public user: FormGroup;
   public errorMsg: string;
 
-  constructor(private authService: AuthenticationService, private router: Router, private fb: FormBuilder) { }
+  constructor(private authService: AuthenticationService, private _router: Router, private fb: FormBuilder) { }
 
   ngOnInit() {
     this.user = this.fb.group({
@@ -31,14 +31,14 @@ export class LoginComponent implements OnInit {
   onSubmit() {
     this.authService.login(this.user.value.username, this.user.value.password).subscribe(val => {
       if (val) {
-        console.log(val);
         if (this.authService.redirectUrl) {
           // if there was a redirect url
-          this.router.navigateByUrl(this.authService.redirectUrl);
+          this._router.navigateByUrl(this.authService.redirectUrl);
           this.authService.redirectUrl = undefined;
         } else {
           // go to main screen
-          this.router.navigate(['admin']);
+          console.log('routing..');
+          this._router.navigate(['admin']);
         }
       }
     }, err => this.errorMsg = err.json().message);
