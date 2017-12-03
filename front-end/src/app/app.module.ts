@@ -17,9 +17,7 @@ import { AppRoutingModule } from './app-routing/app-routing.module';
 import { FooterComponent } from './footer/footer.component';
 import { DetailblogComponent } from './blog/detailblog/detailblog.component';
 import { ArchiveComponent } from './blog/archive/archive.component';
-import { AdminPanelComponent } from './admin-panel/admin-panel.component';
-import { AddBlogpostComponent } from './admin-panel/add-blogpost/add-blogpost.component';
-
+import { UserModule } from './user/user.module';
 
 @NgModule({
   declarations: [
@@ -28,15 +26,14 @@ import { AddBlogpostComponent } from './admin-panel/add-blogpost/add-blogpost.co
     FooterComponent,
     DetailblogComponent,
     ArchiveComponent,
-    AdminPanelComponent,
-    AddBlogpostComponent
   ],
   imports: [
     BrowserModule,
     MaterializeModule,
     HttpModule,
     AppRoutingModule,
-    CarouselModule
+    CarouselModule,
+    UserModule
   ],
   providers: [],
   bootstrap: [AppComponent]

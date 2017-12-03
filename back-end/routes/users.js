@@ -1,5 +1,8 @@
 var express = require('express');
 var router = express.Router();
+let mongoose = require('mongoose');
+let passport = require('passport');
+let User = mongoose.model('User');
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
@@ -47,4 +50,5 @@ router.post('/checkusername', function(req, res, next) {
       }
     });
 });
+
 module.exports = router;

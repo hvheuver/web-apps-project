@@ -8,6 +8,8 @@ export class AuthenticationService {
   private _url = 'API/users';
   private _user$: BehaviorSubject<string>;
 
+  public redirectUrl: string;
+  
   constructor(private http: Http) {
     const currentUser = JSON.parse(localStorage.getItem('currentUser'));
     this._user$ = new BehaviorSubject<string>(
