@@ -1,15 +1,15 @@
 import { TestBed, inject } from '@angular/core/testing';
 
-import { BlogDataServiceService } from './blog-data-service.service';
+import { BlogAdminDataServiceService } from './blog-admin-data-service.service';
 
-describe('BlogDataServiceService', () => {
+describe('BlogAdminDataServiceService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [BlogDataServiceService]
+      providers: [BlogAdminDataServiceService]
     });
   });
 
-  it('should be created', inject([BlogDataServiceService], (service: BlogDataServiceService) => {
+  it('should be created', inject([BlogAdminDataServiceService], (service: BlogDataServiceService) => {
     expect(service).toBeTruthy();
   }));
 });

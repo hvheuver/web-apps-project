@@ -30,7 +30,7 @@ const appRoutes: Routes = [
     {path: 'bestuur', component: BestuurComponent},
     {path: 'contact', component: ContactComponent},
     {path: 'admin', canActivate: [ AuthGuardService], component: AdminPanelComponent },
-    {path: 'addblogpost', canActivate: [ AuthGuardService], component: AddBlogpostComponent },
+    {path: 'admin/addblog', canActivate: [ AuthGuardService], component: AddBlogpostComponent },
     {path: 'user', loadChildren: 'app/user/user.module#UserModule'},
     {path: '**', component: NotFoundComponent }
 ];

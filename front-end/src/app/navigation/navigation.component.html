@@ -4,7 +4,7 @@
           <a materialize="sideNav" href="#" data-activates="slide-out" class="button-collapse">
             <i class="material-icons">menu</i>
           </a>
-
+          <div *ngIf="!isLoggedIn()">
           <ul id="nav-mobile" class="right hide-on-med-and-down">
             <li><a routerLink="/blog">Home</a></li>
             <li><a routerLink="/beschrijfschieting">Beschrijfschieting</a></li>
@@ -24,6 +24,19 @@
               <li><a routerLink="/bestuur">Bestuur</a></li>
               <li><a routerLink="/contact">Contact</a></li>
             </ul>
+          </div>
+
+          <div *ngIf="isLoggedIn()">
+              <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a routerLink="/admin">Blog</a></li>
+                <li><a routerLink="/user/logout">logout</a></li>
+              </ul>
+          
+              <ul id="slide-out" class="side-nav">
+                  <li><a routerLink="/admin">Blog</a></li>
+                  <li><a routerLink="/user/logout">logout</a></li>
+              </ul>
+          </div>
         </div>
       </nav>
 </div>

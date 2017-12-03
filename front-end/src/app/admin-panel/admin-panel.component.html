@@ -1,3 +1,25 @@
-<p>
-  admin-panel works!
-</p>
+<h2>Blog beheren</h2>
+
+<div class="row">
+  <div class="col s12 m10 offset-m1 l8 offset-l2">
+      <div class="buttonwrapper">
+        <a class="waves-effect waves-light btn" routerLink="addblog" >Voeg een post toe</a>
+      </div>
+      <table>
+          <thead>
+            <tr>
+                <th>Titel</th>
+                <th>Aanpassen</th>
+                <th>Verwijderen</th>
+            </tr>
+          </thead>
+          <tbody *ngFor="let post of blogposts">
+            <tr>
+              <td>{{post.title}}</td>
+              <td>aanpassen</td>
+              <td>verwijderen</td>
+            </tr>
+          </tbody>
+        </table>
+  </div>
+</div>

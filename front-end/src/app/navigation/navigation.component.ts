@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ICarouselConfig, AnimationConfig } from 'angular4-carousel';
+import { AuthenticationService } from '../user/authentication.service';
 
 @Component({
   selector: 'app-navigation',
@@ -23,9 +24,17 @@ export class NavigationComponent implements OnInit {
    stopAutoplayMinWidth: 768
  };
 
-  constructor() { }
+  constructor(private _authService: AuthenticationService) { }
 
   ngOnInit() {
+  }
+
+  isLoggedIn() {
+    if (localStorage.getItem('currentUser')) {
+      return true;
+    } else {
+      return false;
+    }
   }
 
 }
