@@ -39,7 +39,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 //passport
 app.use(passport.initialize());
 
-app.use('/', index);
+app.use('/API', index);
 app.use('/users', users);
 
 // catch 404 and forward to error handler

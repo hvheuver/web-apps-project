@@ -4,10 +4,6 @@ let mongoose = require('mongoose');
 let passport = require('passport');
 let User = mongoose.model('User');
 
-/* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
-});
 
 //register users
 router.post('/register', function(req, res, next){

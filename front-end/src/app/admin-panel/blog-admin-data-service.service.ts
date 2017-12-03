@@ -18,4 +18,13 @@ export class BlogDataService {
         post => new Blogpost(post.title, post.body, post.imageUrl))
     );
   }
+
+  addBlogpost(newpost): Observable<Blogpost> {
+    // Iterate over observable<T> and map to Observable<U>
+    // map every response to a class
+    return this.http.post(this._appUrl, newpost).map(response =>
+      response.json()).map(
+        post => new Blogpost(post.title, post.body, post.imageUrl)
+      );
+  }
 }

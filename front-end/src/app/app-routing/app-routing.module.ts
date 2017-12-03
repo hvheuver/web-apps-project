@@ -18,6 +18,7 @@ import { RegisterComponent } from '../user/register/register.component';
 import { LoginComponent } from '../user/login/login.component';
 import { AddBlogpostComponent } from '../admin-panel/add-blogpost/add-blogpost.component';
 import { AdminPanelComponent } from '../admin-panel/admin-panel.component';
+import { AuthGuardService } from '../user/auth-guard.service';
 
 const appRoutes: Routes = [
     {path: '', redirectTo: 'blog', pathMatch: 'full'},
@@ -28,8 +29,8 @@ const appRoutes: Routes = [
     {path: 'willemtell', component: WillemTellComponent},
     {path: 'bestuur', component: BestuurComponent},
     {path: 'contact', component: ContactComponent},
-    {path: 'admin', component: AdminPanelComponent },
-    {path: 'addblogpost', component: AddBlogpostComponent },
+    {path: 'admin', canActivate: [ AuthGuardService], component: AdminPanelComponent },
+    {path: 'addblogpost', canActivate: [ AuthGuardService], component: AddBlogpostComponent },
     {path: 'user', loadChildren: 'app/user/user.module#UserModule'},
     {path: '**', component: NotFoundComponent }
 ];
