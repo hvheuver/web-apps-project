@@ -38,7 +38,7 @@ export class LoginComponent implements OnInit {
         } else {
           // go to main screen
           console.log('routing..');
-          this._router.navigate(['admin']);
+          this._router.navigateByUrl('/admin');
         }
       }
     }, err => this.errorMsg = err.json().message);
