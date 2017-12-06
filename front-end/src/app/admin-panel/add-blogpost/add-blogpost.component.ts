@@ -11,7 +11,8 @@ import { Router } from '@angular/router';
   providers: [ BlogAdminDataService ]
 })
 export class AddBlogpostComponent implements OnInit {
-  private post: FormGroup;
+  public post: FormGroup;
+  public errorMsg: string;
 
   constructor(private fb: FormBuilder, private _blogAdminDataService: BlogAdminDataService, private _router: Router) { }
 
@@ -19,8 +20,7 @@ export class AddBlogpostComponent implements OnInit {
     this.post = this.fb.group({
       title: ['', [Validators.required]],
       body: ['', [Validators.required]],
-      imageUrl: ['', [Validators.required,
-        Validators.pattern('https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)')]]
+      imageUrl: ['', [Validators.required]]
     });
 
     this.post.statusChanges.debounceTime(400).distinctUntilChanged().subscribe();
@@ -33,8 +33,10 @@ export class AddBlogpostComponent implements OnInit {
   onSubmit() {
     const newpost = new Blogpost(this.post.value.title,
     this.post.value.body, this.post.value.imageUrl);
-    this._blogAdminDataService.addBlogpost(newpost).subscribe();
-    this._router.navigate(['admin']);
+    this._blogAdminDataService.addBlogpost(newpost).subscribe(res =>{
+    if (res) {
+      this._router.navigate(['admin']);
+    }}, err => this.errorMsg = err.json().message);
   }
 
 }

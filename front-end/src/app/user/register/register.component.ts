@@ -57,6 +57,7 @@ export class RegisterComponent implements OnInit {
   onSubmit() {
     this.authenticationService.register(this.user.value.username, this.passwordControl.value).subscribe(val => {
       if (val) {
+        // show success message
         this.router.navigate(['/admin']);
       }
     });

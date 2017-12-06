@@ -48,10 +48,7 @@ export class AuthenticationService {
       .map(res => res.json()).map(res => {
         const token = res.token;
         if (token) {
-          localStorage.setItem('currentUser',
-            JSON.stringify({ username: username, token: res.token })
-          );
-          this._user$.next(username);
+          // check if there is a token, but don't do anything with it.
           return true;
         } else {
           return false;

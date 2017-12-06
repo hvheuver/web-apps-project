@@ -17,6 +17,7 @@ require('./models/User');
 
 require('./config/passport');
 
+mongoose.connect('mongodb://#####:#####@ds127126.mlab.com:27126/willemtell', {useMongoClient: true});
 mongoose.connect('mongodb://localhost/wtmeandb',
 {useMongoClient: true});
 

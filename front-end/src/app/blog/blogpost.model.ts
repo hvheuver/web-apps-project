@@ -32,7 +32,7 @@ export class Blogpost {
         return this._imageUrl;
     }
 
-    toJson() {
+    toJSON() {
         return {
             _id: this._id,
             title: this._title,

@@ -22,6 +22,8 @@ export class BlogAdminDataService {
   }
 
   removeBlogpost(postid) {
-    return this.http.delete(`${this._appUrl}/${postid}`).map(res => res.json());
+    return this.http.delete(`${this._appUrl}/${postid}`,
+    { headers: new Headers({Authorization: `Bearer ${this.auth.token}`}) })
+    .map(res => res.json());
   }
 }
