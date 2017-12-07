@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { RouterModule, Routes } from '@angular/router';
+import { CanActivate, RouterModule, Routes } from '@angular/router';
 import { AuthenticationService } from './authentication.service';
 import { AuthGuardService } from './auth-guard.service';
 import { HttpModule } from '@angular/http';
@@ -14,7 +14,7 @@ import { LogoutComponent } from './logout/logout.component';
 const routes = [
   { path: 'login', component: LoginComponent },
   { path: 'logout', component: LogoutComponent },
-  { path: 'register', component: RegisterComponent }
+  { path: 'register', canActivate: [ AuthGuardService], component: RegisterComponent }
 ];
 
 @NgModule({

@@ -30,13 +30,15 @@
 
           <div *ngIf="isLoggedIn()">
               <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a routerLink="/user/register">Registreer</a></li>
                 <li><a routerLink="/admin">Blog</a></li>
-                <li><a routerLink="/user/logout">logout</a></li>
+                <li><a routerLink="/user/logout">Logout</a></li>
               </ul>
           
               <ul id="slide-out" class="side-nav">
+                  <li><a routerLink="/user/register">Registreer</a></li>                  
                   <li><a routerLink="/admin">Blog</a></li>
-                  <li><a routerLink="/user/logout">logout</a></li>
+                  <li><a routerLink="/user/logout">Logout</a></li>
               </ul>
           </div>
         </div>

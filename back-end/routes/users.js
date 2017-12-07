@@ -2,7 +2,10 @@ var express = require('express');
 var router = express.Router();
 let mongoose = require('mongoose');
 let passport = require('passport');
+let jwt = require('express-jwt');
 let User = mongoose.model('User');
+let auth = jwt({secret: process.env.SPOOKY_SECRET, userProperty: 'payload'});
+
 
 
 //register users, only admin is allowed.

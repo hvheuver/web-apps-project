@@ -1,7 +1,8 @@
 import { BehaviorSubject, Observable } from 'rxjs/Rx';
-import { Http, Response } from '@angular/http';
+import { Http, Response, Headers } from '@angular/http';
 import { Injectable } from '@angular/core';
 import 'rxjs/add/operator/map';
+
 
 @Injectable()
 export class AuthenticationService {
@@ -43,8 +44,9 @@ export class AuthenticationService {
   }
 
   register(username: string, password: string): Observable<boolean> {
+    console.log(this.token);
     return this.http.post(`${this._url}/register`,
-    { username: username, password: password })
+    { username: username, password: password}, { headers: new Headers({Authorization: `Bearer ${this.token}`}) })
       .map(res => res.json()).map(res => {
         const token = res.token;
         if (token) {

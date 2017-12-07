@@ -1,0 +1,41 @@
+h3{
+    text-align: center;
+}
+
+.btn{
+    background-color: rgb(198, 40, 40);
+}
+
+.btnwrapper{
+    text-align: center;
+    width: 100%;
+}
+
+.card-panel{
+    float: none;
+    text-align: center;
+}
+
+/* label color */
+.input-field label {
+    color: #000;
+}
+/* label focus color */
+.input-field input:focus + label {
+    color: #000;
+}
+/* label underline focus color */
+.input-field input:focus {
+    border-bottom: 1px solid #000;
+    box-shadow: 0 1px 0 0 #000;
+}
+
+/* icon prefix focus color */
+.input-field .prefix.active {
+    color: #000;
+}
+
+.card-panel {
+   padding: 5px;
+}
+    

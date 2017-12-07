@@ -1,33 +1,41 @@
-<form [formGroup]='user' (ngSubmit)='onSubmit()' class="ui large form segment">
-    <h3 class="ui header">register new user</h3>
-    <div class="field">
-      <label for="username">username:</label>
-      <input type="text" id="username" formControlName='username'>
-      <div class='ui pointing red basic label' *ngIf=' user.get("username").errors?.required && user.get("username").touched'>
-        a username is required
+<div class="row">
+<form [formGroup]='user' (ngSubmit)='onSubmit()' class="col s12">
+    <h3>Registreer een nieuwe gebruiker</h3>
+      <div class="input-field col s10 offset-s1 m4 offset-m4">
+        <label for="username">Gebruikersnaam</label>
+        <input type="text" id="username" formControlName='username'>
+        <div class='card-panel red lighten-4' *ngIf=' user.get("username").errors?.required && user.get("username").touched'>
+          Gebruikersnaam is verplicht
+        </div>
+      
+      <div class='card-panel red lighten-4' *ngIf='user.get("username").errors?.minlength && user.get("username").touched'>
+          De gebruikersnaam moet tenminste {{user.get("username").errors?.minlength.requiredLength }} letters bevatten
       </div>
-      <div class='ui pointing red basic label' *ngIf='user.get("username").errors?.minlength && user.get("username").touched'>
-        the username should be at least {{user.get("username").errors?.minlength.requiredLength }} letters
-      </div>
-      <div class='ui pointing red basic label' *ngIf='user.get("username").errors?.userAlreadyExists && user.get("username").touched'>
-        a user with that name already exists
+      <div class='card-panel red lighten-4' *ngIf='user.get("username").errors?.userAlreadyExists && user.get("username").touched'>
+          Er bestaat al een gebruiker met deze naam
       </div>
     </div>
     <div formGroupName='passwordGroup'>
-      <div class="field">
-        <label for="password">password:</label>
+      <div class="input-field col s10 offset-s1 m4 offset-m4">
+        <label for="password">Wachtwoord</label>
         <input type="password" id="password" formControlName='password'>
-        <div class='ui pointing red basic label' *ngIf=' passwordControl.errors?.passwordTooShort && passwordControl.touched'>
-          password too short, please use at least {{passwordControl.errors?.passwordTooShort.requiredLength}} letters (got {{passwordControl.errors?.passwordTooShort.actualLength}})
+        <div class='card-panel red lighten-4' *ngIf=' passwordControl.errors?.passwordTooShort && passwordControl.touched'>
+          Gebruik ten minste {{passwordControl.errors?.passwordTooShort.requiredLength}} karakters (momenteel {{passwordControl.errors?.passwordTooShort.actualLength}})
         </div>
       </div>
-      <div class="field">
-        <label for="confirmpassword">confirm password:</label>
+      <div class="input-field col s10 offset-s1 m4 offset-m4">
+        <label for="confirmpassword">Bevestig wachtwoord:</label>
         <input type="password" id="confirmpassword" formControlName='confirmPassword'>
+        <div class='card-panel red lighten-4' *ngIf=' user.get("passwordGroup").errors?.passwordsDiffer && user.get("passwordGroup").get("confirmPassword").touched  && user.get("passwordGroup").get("password").touched'>
+            De wachtwoorden komen niet overeen
+        </div>
+        <div *ngIf='message' class="card-panel lime lighten-4">
+            {{message}}
       </div>
-      <div class='ui pointing red basic label' *ngIf=' user.get("passwordGroup").errors?.passwordsDiffer && user.get("passwordGroup").get("confirmPassword").touched  && user.get("passwordGroup").get("password").touched'>
-       the two passwords should be the same
-      </div>
+      </div> 
     </div>
-    <button type='submit' [disabled]='!user.valid' class="ui positive right floated button">register</button>
+    <div class="btnwrapper col s12">
+      <button type='submit' [disabled]='!user.valid' class="waves-effect waves-light btn">registreer</button>
+    </div>
   </form>
+</div>

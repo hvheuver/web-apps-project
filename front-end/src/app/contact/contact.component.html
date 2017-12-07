@@ -1,3 +1,19 @@
-<p>
-  contact works!
-</p>
+<div class="row">
+    <form [formGroup]='contact' (ngSubmit)='onSubmit()' class="col s12">
+      <h3>login</h3>          
+      <div class="row">
+        <div class="input-field col s10 offset-s1 m4 offset-m4">
+          <input formControlName='username' id="username" type="text">
+          <label for="username">Email</label>
+        </div>
+        <div class="input-field col s10 offset-s1 m4 offset-m4">
+          <input formControlName='password' id="password" type="password" >
+          <label for="password">Onderwerpd</label>
+        </div>
+      </div>
+      <div *ngIf='errorMsg' class="card-panel red lighten-4 col s10 offset-s1" >{{errorMsg}}</div>  
+      <div class="btnwrapper">
+        <button type='submit' [disabled]='true' class="waves-effect waves-light btn">log in</button>            
+      </div>      
+    </form>
+</div>

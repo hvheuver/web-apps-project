@@ -25,22 +25,16 @@ function comparePasswords(control: AbstractControl): { [key: string]: any } {
 })
 export class RegisterComponent implements OnInit {
   public user: FormGroup;
+  public message: string;
 
   get passwordControl(): FormControl {
     return <FormControl>this.user.get('passwordGroup').get('password');
   }
-  
+
   constructor(private authenticationService: AuthenticationService, private router: Router, private fb: FormBuilder) { }
 
   ngOnInit() {
-    this.user = this.fb.group({
-      username: ['', [Validators.required, Validators.minLength(4)], 
-        this.serverSideValidateUsername()],
-      passwordGroup: this.fb.group({
-        password: ['', [Validators.required, passwordValidator(12)]],
-        confirmPassword: ['', Validators.required]
-      }, { validator: comparePasswords })
-    });
+    this.createForm();
   }
 
   serverSideValidateUsername(): ValidatorFn {
@@ -57,9 +51,21 @@ export class RegisterComponent implements OnInit {
   onSubmit() {
     this.authenticationService.register(this.user.value.username, this.passwordControl.value).subscribe(val => {
       if (val) {
-        // show success message
-        this.router.navigate(['/admin']);
+        this.message = '' + this.user.value.username + ' werd toegevoegd';
+        // reset form
+        this.createForm();
       }
+    });
+  }
+
+  createForm() {
+    this.user = this.fb.group({
+      username: ['', [Validators.required, Validators.minLength(4)], 
+        this.serverSideValidateUsername()],
+      passwordGroup: this.fb.group({
+        password: ['', [Validators.required, passwordValidator(12)]],
+        confirmPassword: ['', Validators.required]
+      }, { validator: comparePasswords })
     });
   }
 }
