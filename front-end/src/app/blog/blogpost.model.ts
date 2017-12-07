@@ -1,5 +1,5 @@
 export class Blogpost {
-    private _id: Number;
+    private _id: String;
     private _title: String;
     private _body: String;
     private _imageUrl: String;
@@ -9,14 +9,14 @@ export class Blogpost {
         post._id = json._id;
         return post;
     }
-    
-    constructor(title: String, body: String, imageUrl: String){
+
+    constructor(title: String, body: String, imageUrl: String) {
         this._title = title;
         this._body = body;
         this._imageUrl = imageUrl;
     }
 
-    get id(): Number{
+    get id(): String{
         return this._id;
     }
 

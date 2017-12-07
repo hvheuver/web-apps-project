@@ -18,4 +18,9 @@ export class BlogDataService {
         post => Blogpost.fromJSON(post))
     );
   }
+
+  getPost(id): Observable<Blogpost>{
+    return this.http.get(`${this._appUrl}/recipe/${id}`)
+    .map(response => response.json()).map(item => Blogpost.fromJSON(item));
+  }
 }

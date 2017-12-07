@@ -14,7 +14,7 @@ let passport = require('passport')
 
 require('./models/Blogpost');
 require('./models/User');
-
+require('./models/Contact');
 require('./config/passport');
 
 //mongoose.connect('mongodb://#####:#####@ds127126.mlab.com:27126/willemtell', {useMongoClient: true});

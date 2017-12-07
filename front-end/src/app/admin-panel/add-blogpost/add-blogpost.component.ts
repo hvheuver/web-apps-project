@@ -33,7 +33,7 @@ export class AddBlogpostComponent implements OnInit {
   onSubmit() {
     const newpost = new Blogpost(this.post.value.title,
     this.post.value.body, this.post.value.imageUrl);
-    this._blogAdminDataService.addBlogpost(newpost).subscribe(res =>{
+    this._blogAdminDataService.addBlogpost(newpost).subscribe(res => {
     if (res) {
       this._router.navigate(['admin']);
     }}, err => this.errorMsg = err.json().message);
