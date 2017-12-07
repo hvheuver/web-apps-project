@@ -84,4 +84,18 @@ router.post('/contact', function(req, res, next){
   });
 });
 
+router.get('/contactrequests', auth,function(req, res, next){
+  Contact.find(function(err, contactrequests){
+    if(err) return next(err);
+      res.json(contactrequests);
+  });
+});
+
+router.delete('/contactrequests/:id', auth, function(req, res, next) {
+  Contact.remove({ _id: {$in: req.params.id}}, function (err) {
+    if (err) return next(err);
+      res.json(req.params.id);
+  });
+});
+
 module.exports = router;

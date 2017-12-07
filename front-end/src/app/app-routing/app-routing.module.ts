@@ -1,10 +1,11 @@
-import { BlogAdminDataService } from '../admin-panel/blog-admin-data-service.service';
-import { BlogResolver } from '../blog/blog-resolver.services';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { MaterializeModule} from 'angular2-materialize';
 import { CanActivate, RouterModule, Routes } from '@angular/router';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { BlogDataService } from '../blog/blog-data-service.service';
+import { BlogResolver } from '../blog/blog-resolver.services';
+import { BlogAdminDataService } from '../admin-panel/blog-admin-data-service.service';
 // public components
 import { AppComponent } from '../app.component';
 import { BlogComponent } from '../blog/blog.component';
@@ -22,7 +23,7 @@ import { AddBlogpostComponent } from '../admin-panel/add-blogpost/add-blogpost.c
 import { AdminPanelComponent } from '../admin-panel/admin-panel.component';
 import { AuthGuardService } from '../user/auth-guard.service';
 import { AuthenticationService } from '../user/authentication.service';
-import { BlogDataService } from '../blog/blog-data-service.service';
+import { ContactRequestsComponent } from '../admin-panel/contact-requests/contact-requests.component';
 
 const appRoutes: Routes = [
     {path: '', redirectTo: 'blog', pathMatch: 'full'},
@@ -37,6 +38,7 @@ const appRoutes: Routes = [
     {path: 'admin/addblog', canActivate: [ AuthGuardService], component: AddBlogpostComponent },
     {path: 'admin/editblog/:id', canActivate: [AuthGuardService], component: AddBlogpostComponent,
       resolve: {post: BlogResolver}},
+    {path: 'admin/contactrequest', canActivate: [AuthGuardService], component: ContactRequestsComponent},
     {path: 'user', loadChildren: 'app/user/user.module#UserModule'},
     {path: '**', component: NotFoundComponent }
 ];
@@ -53,7 +55,8 @@ const appRoutes: Routes = [
     ContactComponent,
     NotFoundComponent,
     AdminPanelComponent,
-    AddBlogpostComponent
+    AddBlogpostComponent,
+    ContactRequestsComponent
   ],
   imports: [
     BrowserModule,
