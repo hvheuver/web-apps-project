@@ -20,7 +20,7 @@ export class BlogDataService {
   }
 
   getPost(id): Observable<Blogpost>{
-    return this.http.get(`${this._appUrl}/recipe/${id}`)
+    return this.http.get(`${this._appUrl}/${id}`)
     .map(response => response.json()).map(item => Blogpost.fromJSON(item));
   }
 }

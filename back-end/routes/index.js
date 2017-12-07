@@ -45,6 +45,13 @@ router.delete('/blogposts/:id', auth, function(req, res, next) {
   });
 });
 
+router.get('/blogposts/:id', function(req, res, next) {
+  Blogpost.find({ _id: {$in: req.params.id}}, function (err) {
+    if (err) return next(err);
+      res.json(req.params.id);
+  });
+});
+
 router.post('/contact', function(req, res, next){
   // validation
   if(!req.body.email || !req.body.subject || !req.body.body ){
