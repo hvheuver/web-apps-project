@@ -17,10 +17,11 @@ require('./models/User');
 require('./models/Contact');
 require('./config/passport');
 
-//mongoose.connect('mongodb://#####:#####@ds127126.mlab.com:27126/willemtell', {useMongoClient: true});
+mongoose.connect(process.env.SECRET_DB, {useMongoClient: true});
+/*
 mongoose.connect('mongodb://localhost/wtmeandb',
 {useMongoClient: true});
-
+*/
 var index = require('./routes/index');
 var users = require('./routes/users');
 
