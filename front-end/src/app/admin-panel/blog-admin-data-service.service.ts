@@ -21,6 +21,14 @@ export class BlogAdminDataService {
       );
   }
 
+  editBlogpost(editpost): Observable<Blogpost> {
+    return this.http.patch(`${this._appUrl}/${editpost.id}`,
+    editpost, { headers: new Headers({Authorization: `Bearer ${this.auth.token}`}) }).map(response =>
+      response.json()).map(
+        post => Blogpost.fromJSON(post)
+      );
+  }
+
   removeBlogpost(postid) {
     return this.http.delete(`${this._appUrl}/${postid}`,
     { headers: new Headers({Authorization: `Bearer ${this.auth.token}`}) })

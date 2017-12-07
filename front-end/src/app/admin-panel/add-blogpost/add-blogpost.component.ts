@@ -16,19 +16,29 @@ export class AddBlogpostComponent implements OnInit {
   private _post: Blogpost;
   public post: FormGroup;
   public errorMsg: string;
-  private edit: Boolean;
+  public edit: Boolean;
 
   constructor(private route: ActivatedRoute, private fb: FormBuilder,
     private _blogAdminDataService: BlogAdminDataService, private _router: Router) { }
 
   ngOnInit() {
     this.route.data.subscribe(item => this._post = item['post']);
-    this.post = this.fb.group({
-      title: ['', [Validators.required]],
-      body: ['', [Validators.required]],
-      imageUrl: ['', [Validators.required]]
-    });
-
+    if (this._post) {
+      this.edit = true;
+      // edit post
+      this.post = this.fb.group({
+        title: [this._post.title, [Validators.required]],
+        body: [this._post.body, [Validators.required]],
+        imageUrl: [this._post.imageUrl, [Validators.required]]
+      });
+    } else {
+      // new post
+      this.post = this.fb.group({
+        title: ['', [Validators.required]],
+        body: ['', [Validators.required]],
+        imageUrl: ['', [Validators.required]]
+      });
+    }
     this.post.statusChanges.debounceTime(400).distinctUntilChanged().subscribe();
   }
 
@@ -39,10 +49,20 @@ export class AddBlogpostComponent implements OnInit {
   onSubmit() {
     const newpost = new Blogpost(this.post.value.title,
     this.post.value.body, this.post.value.imageUrl);
-    this._blogAdminDataService.addBlogpost(newpost).subscribe(res => {
-    if (res) {
-      this._router.navigate(['admin']);
-    }}, err => this.errorMsg = err.json().message);
+    if (this.edit) {
+      // patch
+      newpost.id = this._post.id;
+      this._blogAdminDataService.editBlogpost(newpost).subscribe(res => {
+        if (res) {
+          this._router.navigate(['admin']);
+        }}, err => this.errorMsg = err.json().message);
+    } else {
+      // post
+      this._blogAdminDataService.addBlogpost(newpost).subscribe(res => {
+        if (res) {
+          this._router.navigate(['admin']);
+        }}, err => this.errorMsg = err.json().message);
+    }
   }
 
 }

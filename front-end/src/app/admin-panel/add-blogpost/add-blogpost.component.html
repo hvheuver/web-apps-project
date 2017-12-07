@@ -1,6 +1,7 @@
 <div class="row">
     <form [formGroup]='post' (ngSubmit)='onSubmit()' class="col s12">
-      <h3>Voeg een nieuwe post toe</h3>          
+      <h3 *ngIf='!edit'>Voeg een nieuwe post toe</h3>    
+      <h3 *ngIf='edit'>Aanpassen post</h3>                
       <div class="row">
         <div class="input-field col s10 offset-s1 m4 offset-m4">
           <input formControlName='title' id="title" type="text">
@@ -17,7 +18,8 @@
       </div>
       <div *ngIf='errorMsg' class="card-panel red lighten-4 col s10 offset-s1 m4 offset-m4" >{{errorMsg}}</div>  
       <div class="btnwrapper">
-        <button type='submit' [disabled]='!post.valid' class="waves-effect waves-light btn">Voeg post toe</button>            
+        <button *ngIf='!edit' type='submit' [disabled]='!post.valid' class="waves-effect waves-light btn">Voeg post toe</button>            
+        <button *ngIf='edit' type='submit' [disabled]='!post.valid' class="waves-effect waves-light btn">Aanpassen</button>                    
       </div>      
     </form>
 </div>

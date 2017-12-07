@@ -20,6 +20,10 @@ export class Blogpost {
         return this._id;
     }
 
+    set id(id: String) {
+        this._id = id;
+    }
+
     get title(): String{
         return this._title;
     }

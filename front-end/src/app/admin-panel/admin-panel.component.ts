@@ -36,4 +36,8 @@ export class AdminPanelComponent implements OnInit {
       );
       this._router.navigate(['admin']);
     }
+
+    editPost(postid) {
+      this._router.navigate([`admin/editblog/${postid}`]);
+    }
 }

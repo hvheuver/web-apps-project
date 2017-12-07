@@ -9,11 +9,7 @@ let auth = jwt({secret: process.env.SPOOKY_SECRET, userProperty: 'payload'});
 let Blogpost = mongoose.model('Blogpost');
 let Contact = mongoose.model('Contact');
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
-});
-
+// get blogposts
 router.get('/blogposts', function(req, res, next){
   Blogpost.find(function(err, blogposts){
     if(err) return next(err);
@@ -21,6 +17,7 @@ router.get('/blogposts', function(req, res, next){
   });
 })
 
+// submit new post
 router.post('/blogposts', auth, function (req, res, next){
   //server side validation
   if(!req.body.title || !req.body.body || !req.body.imageUrl){
@@ -38,6 +35,25 @@ router.post('/blogposts', auth, function (req, res, next){
   });
 });
 
+// edit a post
+router.patch('/blogposts/:id', auth, function(req, res, next){
+  console.log("allo");
+  if(!req.body.title || !req.body.body || !req.body.imageUrl){
+    return res.status(400).json({message: 'Vul alle velden in.'});
+  }
+  // check URL
+  if(!validator.isURL(req.body.imageUrl)){
+    return res.status(400).json({message: 'Geen geldige URL.'});
+  }
+  // OK
+  let blogpost = new Blogpost(req.body);
+  Blogpost.findByIdAndUpdate(req.params.id, blogpost,function(err, post){
+    if(err) return next(err);
+    res.json(post);
+  });
+});
+
+
 router.delete('/blogposts/:id', auth, function(req, res, next) {
   Blogpost.remove({ _id: {$in: req.params.id}}, function (err) {
     if (err) return next(err);
@@ -46,9 +62,9 @@ router.delete('/blogposts/:id', auth, function(req, res, next) {
 });
 
 router.get('/blogposts/:id', function(req, res, next) {
-  Blogpost.find({ _id: {$in: req.params.id}}, function (err) {
+  Blogpost.findById(req.params.id, function (err, post) {
     if (err) return next(err);
-      res.json(req.params.id);
+      res.json(post);
   });
 });
 
