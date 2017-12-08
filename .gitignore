@@ -46,3 +46,5 @@ back-end/*.gz
 
 #secret
 back-end/.env.json
+
+node_modules

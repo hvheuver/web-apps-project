@@ -28,7 +28,6 @@ var users = require('./routes/users');
 var app = express();
 
 // view engine setup
-app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
 // uncomment after placing your favicon in /public
@@ -43,6 +42,13 @@ app.use(passport.initialize());
 
 app.use('/API', index);
 app.use('/users', users);
+app.use(express.static(path.join(__dirname, 'dist')));
+
+//elke request doorsturen naar angular
+app.all('*', (req, res) => {
+	const indexFile= `${path.join(__dirname, 'dist')}/index.html`;
+	res.status(200).sendFile(indexFile);
+});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
