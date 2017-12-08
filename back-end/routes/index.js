@@ -31,7 +31,7 @@ router.post('/blogposts', auth, function (req, res, next){
   let blogpost = new Blogpost(req.body);
   blogpost.save(function(err, post){
     if(err) return next(err);
-    res.json(post)
+    res.json(post);
   });
 });
 

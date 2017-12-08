@@ -6,10 +6,8 @@ let jwt = require('express-jwt');
 let User = mongoose.model('User');
 let auth = jwt({secret: process.env.SPOOKY_SECRET, userProperty: 'payload'});
 
-
-
 //register users, only admin is allowed.
-router.post('/register', auth, function(req, res, next){
+router.post('/register', function(req, res, next){
   if(!req.body.username || !req.body.password){
       return res.status(400).json(
         {message: 'Vul alle velden in.'});

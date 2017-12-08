@@ -27,3 +27,4 @@ https://wt-mean.herokuapp.com/
 - Materialize-css module als basis van opmaak
 - Carousel module
 - Favicon
+- 4 backend tests
