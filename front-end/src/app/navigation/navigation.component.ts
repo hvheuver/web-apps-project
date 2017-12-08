@@ -10,8 +10,8 @@ import { AuthenticationService } from '../user/authentication.service';
 export class NavigationComponent implements OnInit {
   public imageSources: string[] = [
     '../../assets/images/slide-image-1-crop.jpg',
-    '../../assets/images/slide-image-1-crop.jpg',
-    '../../assets/images/slide-image-1-crop.jpg'
+    '../../assets/images/slide-image-2-crop.jpg',
+    '../../assets/images/slide-image-3-crop.jpg'
  ];
 
  public config: ICarouselConfig = {
